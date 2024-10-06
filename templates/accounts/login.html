@@ -1,0 +1,158 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="loginbox">
+        <img src="{% static 'profile_icon.jpg' %}" class="user">
+        <h1>Login Here</h1>
+        <form action="{% url 'accounts:login' %}" method="POST">
+            <p>E-mail</p>
+           <input type="text" name="email" placeholder="Enter Email" required id="id_email">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter Password" required id="id_password">
+
+            {% csrf_token %}
+        
+            <input type="submit" name="" value="Login">
+            <a href="/">Back to Home</a><br>
+           
+        </form>
+
+        
+    </div>
+    
+</body>
+</html>
+
+
+ -->
+
+
+ {% load static %}
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+     <style>
+         /* Updated CSS */
+         body {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+             margin: 0;
+             font-family: 'Roboto', sans-serif;
+             background: linear-gradient(to right, #6a11cb, #2575fc);
+         }
+ 
+         .loginbox {
+             background: #ffffff;
+             color: #333;
+             padding: 2rem;
+             width: 100%;
+             max-width: 400px;
+             border-radius: 10px;
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+             text-align: center;
+             animation: fadeIn 1s ease-in-out;
+         }
+ 
+         .loginbox img.user {
+             width: 100px;
+             height: 100px;
+             border-radius: 50%;
+             margin-bottom: 1.5rem;
+         }
+ 
+         .loginbox h1 {
+             margin-bottom: 1.5rem;
+             font-weight: 500;
+             color: #333;
+         }
+ 
+         .loginbox p {
+             margin: 0.5rem 0;
+             font-weight: 400;
+         }
+ 
+         .loginbox input[type="text"],
+         .loginbox input[type="password"] {
+             width: 100%;
+             padding: 10px;
+             margin: 0.5rem 0;
+             border: 1px solid #ccc;
+             border-radius: 5px;
+             font-size: 1rem;
+         }
+ 
+         .loginbox input[type="submit"] {
+             background: #6a11cb;
+             color: white;
+             border: none;
+             padding: 10px 20px;
+             border-radius: 5px;
+             cursor: pointer;
+             font-size: 1rem;
+             transition: background 0.3s ease;
+         }
+ 
+         .loginbox input[type="submit"]:hover {
+             background: #2575fc;
+         }
+ 
+         .loginbox a {
+             display: block;
+             margin-top: 1rem;
+             color: #6a11cb;
+             text-decoration: none;
+         }
+ 
+         .loginbox a:hover {
+             text-decoration: underline;
+         }
+ 
+         @keyframes fadeIn {
+             from {
+                 opacity: 0;
+                 transform: scale(0.95);
+             }
+             to {
+                 opacity: 1;
+                 transform: scale(1);
+             }
+         }
+     </style>
+     <title>Login Page</title>
+ </head>
+ <body>
+     <div class="loginbox">
+         <img src="{% static 'profile_icon.jpg' %}" alt="User Icon" class="user">
+         <h1>Login Here</h1>
+         <form action="{% url 'accounts:login' %}" method="POST">
+             {% csrf_token %}
+             <p style="color: #6a11cb;"><b>E-mail</b></p>
+             <input type="text" name="email" placeholder="Enter Email" required id="id_email">
+             <p style="color: #6a11cb;"><b>Password</b></p>
+             <input type="password" name="password" placeholder="Enter Password" required id="id_password">
+             <!-- {% csrf_token %} -->
+             <input type="submit" value="Login">
+             <a href="/">Back to Home</a>
+         </form>
+     </div>
+ </body>
+ </html>
+ 
+ 

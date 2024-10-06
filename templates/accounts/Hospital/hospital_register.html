@@ -1,0 +1,271 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+    <title>Register Page</title>
+</head>
+<style>
+    .loginbox {
+        width: 75%;
+        height: auto;
+        background: lightblue;
+        color: black;
+        top: 100%;
+        /* margin-top: 50px; */
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+        padding: 7rem 3rem;
+    }
+    textarea{
+        margin-top: 20px;
+    }
+
+    @media screen and (max-width: 800px) {
+
+
+        .loginbox {
+            width: 75%;
+            top: 100%;
+            margin-top: 300px;
+        }
+
+        .user {
+            display: none;
+        }
+
+        .vl {
+            border-left: 6px solid black;
+            height: 600px;
+            padding: 10px;
+        }
+        textarea{
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="loginbox">
+
+        <h1>Hospital Register</h1>
+        <form action="{% url 'accounts:hospital-register' %}" method="POST">
+
+            {% csrf_token %}
+            <div class="row" style="padding: 20px;">
+
+                <div class="col-sm" style="border:2px solid white; border-radius:10px; ">
+                    <p><label for="id_first_name">Hospital Name:</label> <input type="text" name="first_name"
+                            maxlength="30" placeholder="Enter Hospital Name" id="id_first_name"></p>
+                    <p><label for="id_last_name">Hospital Manager Name:</label> <input type="text" name="last_name"
+                            maxlength="150" placeholder="Enter Hospital Manager Name" id="id_last_name"></p>
+                    <p><label for="id_email">Email:</label> <input type="text" name="email" maxlength="254" autofocus=""
+                            placeholder="Enter Email" required="" id="id_email"></p>
+                    <p><label for="id_password1">Password:</label> <input type="password" name="password1"
+                            placeholder="Enter Password" required="" id="id_password1"> <span class="helptext"></span>
+                    </p>
+                    <ul>
+                        <li><h4>Your password can't be too similar to your other personal information.</h4></li>
+                        <li><h4>Your password must contain at least 8 characters.</h4></li>
+                        <li><h4>Your password can't be a commonly used password.</h4></li>
+                        <li><h4>Your password can't be entirely numeric.</h4></li>
+                    </ul>
+                    <p></p>
+                </div>
+              
+                <div class="col-sm" style="border:2px solid white; border-radius:10px;">
+                    <p><label for="id_password2">Confirm Password:</label> <input type="password" name="password2"
+                            placeholder="Confirm Password" required="" id="id_password2"> <span class="helptext">Enter
+                            the same password
+                            as before, for verification.</span></p>
+                    <p><label for="id_address">Address:</label> <textarea name="address" cols="40" rows="10"
+                            placeholder="Enter Address" id="id_address"></textarea></p>
+                    <p><label for="id_phone_number_0"> Phone Number:</label> <input type="text" name="phone_number_0"
+                            size="13" placeholder="Enter Phone Number" id="id_phone_number_0"><span
+                            class="phone-field-ext">&nbsp;&nbsp;ext.&nbsp;&nbsp;</span><input type="text"
+                            name="phone_number_1" size="4" placeholder="Enter Phone Number" id="id_phone_number_1">
+                        <span class="helptext">Contact phone number</span>
+                    </p>
+                    <p><label for="id_pincode">PinCode:</label> <input type="text" name="pincode" maxlength="6"
+                            placeholder="Enter PinCode" required="" id="id_pincode"></p>
+                </div>
+            </div>
+
+            <input type="submit" name="" value="Register Hospital">
+            <a href="/">Back to Home</a><br>
+
+        </form>
+
+
+    </div>
+
+</body>
+
+</html> -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Register Page</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .loginbox {
+            width: 80%;
+            max-width: 800px;
+            margin: 5% auto;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .loginbox h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #007bff;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .password-requirements {
+            list-style-type: none;
+            padding-left: 0;
+            color: #ff0000;
+        }
+
+        .password-requirements li {
+            margin-bottom: 0.5rem;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 800px) {
+            .loginbox {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginbox">
+        <h1>Hospital Register</h1>
+        <form action="{% url 'accounts:hospital-register' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="id_first_name">Hospital Name:</label>
+                        <input type="text" class="form-control" name="first_name" maxlength="30" placeholder="Enter Hospital Name" id="id_first_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_last_name">Hospital Manager Name:</label>
+                        <input type="text" class="form-control" name="last_name" maxlength="150" placeholder="Enter Hospital Manager Name" id="id_last_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_email">Email:</label>
+                        <input type="email" class="form-control" name="email" maxlength="254" placeholder="Enter Email" required id="id_email">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password1">Password:</label>
+                        <input type="password" class="form-control" name="password1" placeholder="Enter Password" required id="id_password1">
+                        <ul class="password-requirements">
+                            <li>Your password can't be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can't be a commonly used password.</li>
+                            <li>Your password can't be entirely numeric.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="id_password2">Confirm Password:</label>
+                        <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required id="id_password2">
+                        <small class="form-text text-muted">Enter the same password as before, for verification.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_address">Address:</label>
+                        <textarea class="form-control" name="address" cols="40" rows="4" placeholder="Enter Address" id="id_address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_phone_number_0">Phone Number:</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" name="phone_number_0" size="13" placeholder="Enter Phone Number" id="id_phone_number_0">
+                            <span class="phone-field-ext">&nbsp;&nbsp;ext.&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control" name="phone_number_1" size="4" placeholder="Enter Phone Number" id="id_phone_number_1">
+                        </div>
+                        <small class="form-text text-muted">Contact phone number</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_pincode">PinCode:</label>
+                        <input type="text" class="form-control" name="pincode" maxlength="6" placeholder="Enter PinCode" required id="id_pincode">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Register Hospital</button>
+            <a href="/" class="back-link">Back to Home</a>
+        </form>
+    </div>
+</body>
+
+</html>
